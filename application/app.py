@@ -37,7 +37,7 @@ st.markdown("""
         box-shadow: 0 2px 8px #d0ebff;
     }
     .stSidebar {
-        background: #f1f3f5;
+        background: #000 !important;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -122,12 +122,15 @@ if st.button("✨ Prédire", help="Cliquez pour obtenir la prédiction"):
         progress.empty()
     st.markdown("---")
     if prediction[0] == 1:
+        # Animation pour mauvaise nouvelle (maligne)
         st.markdown(
             "<div style='background:#fff0f6; border-radius:12px; padding:1em; box-shadow:0 2px 8px #fa5252; text-align:center;'>"
             "<h2 style='color:#fa5252;'>🔴 Résultat : Maligne</h2>"
+            "<div style='font-size:2em;'>💔😢</div>"
             "</div>",
             unsafe_allow_html=True
         )
+        st.snow()  # Effet visuel, même si blanc, c'est le plus "dramatique" disponible
     else:
         st.markdown(
             "<div style='background:#e7f5ff; border-radius:12px; padding:1em; box-shadow:0 2px 8px #228be6; text-align:center;'>"
@@ -135,6 +138,7 @@ if st.button("✨ Prédire", help="Cliquez pour obtenir la prédiction"):
             "</div>",
             unsafe_allow_html=True
         )
+        st.balloons()
     st.markdown(
         f"""
         <div style='font-size:20px; margin-top:1em; text-align:center;'>
@@ -144,4 +148,3 @@ if st.button("✨ Prédire", help="Cliquez pour obtenir la prédiction"):
         """,
         unsafe_allow_html=True
     )
-    st.balloons()
