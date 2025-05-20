@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # Charger le modèle
-model_path = os.path.join(os.path.dirname(__file__), "logistic_regression_model.pkl")
+model_path = os.path.join(os.path.dirname(__file__), "../logistic_regression_model.pkl")
 
 if not os.path.exists(model_path):
     raise FileNotFoundError(f"Le fichier {model_path} est introuvable sur Railway !")
